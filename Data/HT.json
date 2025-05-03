@@ -1,0 +1,95 @@
+{
+  "transportation": [
+    {
+      "bus_no": 1,
+      "route": "Coimbatore Gandhipuram to College",
+      "stops": ["Gandhipuram", "Peelamedu", "Chinniyampalayam", "Karumathampatti", "College"],
+      "km_range": "15-20 km",
+      "fees_per_semester": 12000
+    },
+    {
+      "bus_no": 2,
+      "route": "Coimbatore Ukkadam to College",
+      "stops": ["Ukkadam", "Podanur", "Sulur", "College"],
+      "km_range": "20-25 km",
+      "fees_per_semester": 14000
+    },
+    {
+      "bus_no": 3,
+      "route": "Coimbatore Vadavalli to College",
+      "stops": ["Vadavalli", "Saibaba Colony", "RS Puram", "Peelamedu", "College"],
+      "km_range": "25-30 km",
+      "fees_per_semester": 16000
+    },
+    {
+      "bus_no": 4,
+      "route": "Coimbatore Saravanampatti to College",
+      "stops": ["Saravanampatti", "Ganapathy", "Hope College", "College"],
+      "km_range": "10-15 km",
+      "fees_per_semester": 11000
+    },
+    {
+      "bus_no": 5,
+      "route": "Tirupur Avinashi to College",
+      "stops": ["Tirupur New Bus Stand", "Avinashi", "Palladam", "Sulur", "College"],
+      "km_range": "30-35 km",
+      "fees_per_semester": 18000
+    },
+    {
+      "bus_no": 6,
+      "route": "Tirupur Old Bus Stand to College",
+      "stops": ["Tirupur Old Bus Stand", "Perumanallur", "Avinashi", "Karumathampatti", "College"],
+      "km_range": "35-40 km",
+      "fees_per_semester": 19000
+    }
+  ],
+  "hostel": {
+    "rules": {
+      "general_conduct": ["Maintain discipline", "No misbehavior or violence", "Respect privacy"],
+      "room_allotment": ["Rooms assigned by administration", "No unauthorized changes"],
+      "curfew_timings": {
+        "girls": "7:30 PM",
+        "boys": "8:00 PM",
+        "late_entries": "Need prior approval"
+      },
+      "visitors": ["Allowed in designated areas", "No guests inside rooms"],
+      "attendance": ["Night attendance mandatory", "Absence requires permission"],
+      "prohibited_activities": ["No alcohol, smoking, drugs", "No gambling or loud disturbances"]
+    },
+    "details": {
+      "types": {
+        "boys_hostel": {
+          "location": "Near main academic block",
+          "capacity": 600,
+          "facilities": ["UG and PG floors", "Modern amenities"]
+        },
+        "girls_hostel": {
+          "location": "Secure campus area",
+          "capacity": 400,
+          "facilities": ["24/7 female security", "CCTV surveillance", "Biometric entry"]
+        }
+      },
+      "facilities": {
+        "accommodation": ["Single, double, triple sharing", "Furniture and study tables"],
+        "safety": ["24/7 security", "CCTV monitoring", "Biometric access"],
+        "internet": ["High-speed Wi-Fi", "Study halls with internet"],
+        "medical": ["24/7 medical care", "Tie-up with hospitals", "On-call doctor visits"]
+      },
+      "fee_structure": {
+        "room_types": {
+          "single": "₹90,000 - ₹1,20,000 per year",
+          "double": "₹70,000 - ₹90,000 per year",
+          "triple": "₹60,000 - ₹75,000 per year"
+        },
+        "security_deposit": "₹5,000 refundable",
+        "mess_fees": "₹35,000 - ₹40,000 per year"
+      },
+      "food_timings": {
+        "breakfast": "7:30 AM - 9:00 AM",
+        "lunch": "12:30 PM - 2:00 PM",
+        "evening_snacks": "4:30 PM - 5:30 PM",
+        "dinner": "7:30 PM - 9:00 PM"
+      }
+    }
+  }
+}

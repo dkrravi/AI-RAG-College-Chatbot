@@ -1,0 +1,6 @@
+cd frontend
+npm run dev
+
+
+conda activate pdf-chat
+python app.py
