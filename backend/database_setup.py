@@ -1,6 +1,9 @@
 import sqlite3
+import os
 
-conn = sqlite3.connect("college.db")
+os.makedirs("Data", exist_ok=True)
+DB_PATH = os.path.join("Data", "college.db")
+conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 
 cursor.execute('''
@@ -10,12 +13,13 @@ CREATE TABLE IF NOT EXISTS departments (
 )
 ''')
 
+
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS courses (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     department_id INTEGER,
-    level TEXT NOT NULL, -- UG, PG, Ph.D., Diploma
+    level TEXT NOT NULL,       -- UG, PG, Ph.D., Diploma
     duration TEXT NOT NULL,
     seats INTEGER NOT NULL,
     fees INTEGER NOT NULL,
@@ -24,9 +28,8 @@ CREATE TABLE IF NOT EXISTS courses (
 )
 ''')
 
-cursor.executemany('''
-INSERT INTO departments (name) VALUES (?)
-''', [
+
+departments = [
     ("Computer Science",),
     ("Electronics and Communication",),
     ("Mechanical Engineering",),
@@ -42,12 +45,13 @@ INSERT INTO departments (name) VALUES (?)
     ("Hotel Management",),
     ("Pharmacy",),
     ("Nursing",)
-])
+]
 
-cursor.executemany('''
-INSERT INTO courses (name, department_id, level, duration, seats, fees, eligibility) VALUES (?, ?, ?, ?, ?, ?, ?)
-''', [
 
+cursor.executemany("INSERT INTO departments (name) VALUES (?)", departments)
+
+
+courses = [
     ("B.Sc. Computer Science", 1, "UG", "3 Years", 60, 75000, "12th Grade with Maths"),
     ("B.Tech Computer Engineering", 1, "UG", "4 Years", 60, 120000, "12th Grade with PCM"),
     ("B.Sc. Electronics", 2, "UG", "3 Years", 50, 70000, "12th Grade with Science"),
@@ -63,7 +67,6 @@ INSERT INTO courses (name, department_id, level, duration, seats, fees, eligibil
     ("B.A. Psychology", 12, "UG", "3 Years", 50, 70000, "12th Grade"),
     ("B.Sc. Hotel Management", 13, "UG", "3 Years", 50, 75000, "12th Grade"),
     ("B.Pharm", 14, "UG", "4 Years", 50, 95000, "12th Grade with Science"),
-
 
     ("M.Sc. Computer Science", 1, "PG", "2 Years", 30, 120000, "UG in Computer Science"),
     ("M.Tech Electronics", 2, "PG", "2 Years", 25, 130000, "UG in Electronics"),
@@ -84,9 +87,15 @@ INSERT INTO courses (name, department_id, level, duration, seats, fees, eligibil
     ("Diploma in Computer Applications", 1, "Diploma", "1 Year", 40, 45000, "10th or 12th Grade"),
     ("Diploma in Hotel Management", 13, "Diploma", "1 Year", 40, 50000, "10th or 12th Grade"),
     ("Diploma in Business Administration", 6, "Diploma", "1 Year", 40, 48000, "10th or 12th Grade")
-])
+]
+
+
+cursor.executemany('''
+    INSERT INTO courses (name, department_id, level, duration, seats, fees, eligibility) 
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+''', courses)
 
 conn.commit()
 conn.close()
 
-print("✅ Database created, tables initialized, and sample data inserted!")
+print("Database created and initialized with sample data!")
